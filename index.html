@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SysDev Website Landing Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #181c25;
+            overflow-x: hidden;
+            color: #fff;
+        }
+        /* Rolling Logo */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120px;
+            background: #23283a;
+            position: relative;
+            overflow: hidden;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4f8cff, #a1ffce);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            animation: rollLogo 2s linear infinite;
+            box-shadow: 0 0 20px #4f8cff88;
+        }
+        @keyframes rollLogo {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #23283a;
+            padding: 10px 0;
+            gap: 30px;
+            font-size: 1.1rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 20px;
+            transition: background 0.2s;
+        }
+        nav a:hover {
+            background: #4f8cff;
+            color: #23283a;
+        }
+        /* Vertical Marquee */
+        .marquee-vertical {
+            position: fixed;
+            right: 0;
+            top: 140px;
+            width: 40px;
+            height: 100vh;
+            overflow: hidden;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .marquee-content {
+            display: flex;
+            flex-direction: column;
+            animation: marqueeUp 8s linear infinite;
+        }
+        @keyframes marqueeUp {
+            0% { transform: translateY(100%);}
+            100% { transform: translateY(-100%);}
+        }
+        .marquee-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 1.1rem;
+            color: #4f8cff;
+            margin: 10px 0;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+        /* Bubbles */
+        .bubbles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            background: radial-gradient(circle at 30% 30%, #4f8cff 60%, #a1ffce 100%);
+            animation: moveBubble linear infinite;
+        }
+        /* Main Content */
+        .main-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 180px auto 0 auto;
+            background: rgba(35,40,58,0.85);
+            border-radius: 20px;
+            padding: 40px 30px;
+            box-shadow: 0 8px 32px #23283a44;
+            text-align: center;
+        }
+        .main-content h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #4f8cff;
+        }
+        .main-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #a1ffce;
+        }
+        .main-content .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .main-content .buttons a {
+            background: #4f8cff;
+            color: #23283a;
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .main-content .buttons a:hover {
+            background: #a1ffce;
+            color: #181c25;
+        }
+        @media (max-width: 600px) {
+            .main-content {
+                padding: 20px 10px;
+            }
+            nav {
+                gap: 10px;
+                font-size: 1rem;
+            }
+            .logo-container {
+                height: 80px;
+            }
+            .logo {
+                width: 50px; height: 50px; font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Rolling Logo -->
+    <div class="logo-container">
+        <div class="logo">SD</div>
+    </div>
+    <!-- Navigation -->
+    <nav>
+        <a href="#">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="services.html">Services</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="project.html">Project</a>
+    </nav>
+    <!-- Vertical Marquee -->
+    <div class="marquee-vertical">
+        <div class="marquee-content">
+            <div class="marquee-text">Welcome to SysDev!</div>
+            <div class="marquee-text">Innovate. Create. Deliver.</div>
+            <div class="marquee-text">Your Projects, Our Passion</div>
+            <div class="marquee-text">Contact Us Today</div>
+        </div>
+    </div>
+    <!-- Bubbles -->
+    <div class="bubbles"></div>
+    <!-- Main Content -->
+    <div class="main-content">
+        <h1>SysDev Website</h1>
+        <p>Empowering your business with innovative software solutions. Explore our services, projects, and gallery to see how we can help you grow.</p>
+        <div class="buttons">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Services</a>
+            <a href="#">Gallery</a>
+            <a href="#">Project</a>
+        </div>
+    </div>
+    <script>
+        // Generate random bubbles
+        const bubblesContainer = document.querySelector('.bubbles');
+        const bubbleCount = 18;
+        for (let i = 0; i < bubbleCount; i++) {
+            const bubble = document.createElement('div');
+            bubble.className = 'bubble';
+            const size = Math.random() * 60 + 30;
+            bubble.style.width = bubble.style.height = size + 'px';
+            bubble.style.left = Math.random() * 100 + 'vw';
+            bubble.style.top = Math.random() * 100 + 'vh';
+            bubble.style.opacity = 0.3 + Math.random() * 0.4;
+            const duration = 8 + Math.random() * 8;
+            const delay = Math.random() * 8;
+            const moveX = (Math.random() - 0.5) * 80;
+            const moveY = (Math.random() - 0.5) * 80;
+            bubble.style.animation = `moveBubble ${duration}s linear infinite`;
+            bubble.style.animationDelay = `${delay}s`;
+            bubble.style.setProperty('--moveX', moveX + 'px');
+            bubble.style.setProperty('--moveY', moveY + 'px');
+            bubblesContainer.appendChild(bubble);
+        }
+        // Bubble animation keyframes
+        const styleSheet = document.createElement('style');
+        styleSheet.innerHTML = `
+            @keyframes moveBubble {
+                0% { transform: translate(0,0);}
+                25% { transform: translate(var(--moveX), var(--moveY));}
+                50% { transform: translate(calc(var(--moveX) * -1), calc(var(--moveY) * -1));}
+                75% { transform: translate(var(--moveX), var(--moveY));}
+                100% { transform: translate(0,0);}
+            }
+        `;
+        document.head.appendChild(styleSheet);
+    </script>
+</body>
+</html>

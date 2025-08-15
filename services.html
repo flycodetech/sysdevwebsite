@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Our Services</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #144da1;
+            overflow-x: hidden;
+        }
+        .bubbles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.25;
+            animation: float 20s infinite linear;
+        }
+        .bubble1 { width: 120px; height: 120px; background: #4fc3f7; left: 10%; top: 20%; animation-duration: 18s;}
+        .bubble2 { width: 80px; height: 80px; background: #81d4fa; left: 70%; top: 10%; animation-duration: 22s;}
+        .bubble3 { width: 100px; height: 100px; background: #29b6f6; left: 40%; top: 60%; animation-duration: 25s;}
+        .bubble4 { width: 60px; height: 60px; background: #0288d1; left: 80%; top: 70%; animation-duration: 20s;}
+        .bubble5 { width: 90px; height: 90px; background: #039be5; left: 25%; top: 80%; animation-duration: 24s;}
+        @keyframes float {
+            0% { transform: translateY(0) scale(1);}
+            50% { transform: translateY(-40px) scale(1.1);}
+            100% { transform: translateY(0) scale(1);}
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        h1 {
+            text-align: center;
+            color: #1976d2;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            letter-spacing: 2px;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        .service-card {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 16px rgba(33,150,243,0.08);
+            padding: 32px 20px;
+            text-align: center;
+            transition: box-shadow 0.2s;
+        }
+        .service-card:hover {
+            box-shadow: 0 8px 32px rgba(33,150,243,0.18);
+        }
+        .service-icon {
+            font-size: 2.5em;
+            margin-bottom: 18px;
+            color: #1976d2;
+        }
+        .service-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #1565c0;
+        }
+        .service-desc {
+            font-size: 1em;
+            color: #444;
+        }
+        @media (max-width: 600px) {
+            .container { padding: 30px 8px; }
+            h1 { font-size: 2em; }
+            .service-card { padding: 24px 10px; }
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="bubbles">
+        <div class="bubble bubble1"></div>
+        <div class="bubble bubble2"></div>
+        <div class="bubble bubble3"></div>
+        <div class="bubble bubble4"></div>
+        <div class="bubble bubble5"></div>
+    </div>
+    <div class="container">
+        <h1>Our Services</h1>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                <div class="service-title">Mobile App Development</div>
+                <div class="service-desc">Custom mobile applications for Android and iOS platforms.</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-globe"></i></div>
+                <div class="service-title">Web App Development</div>
+                <div class="service-desc">Modern, responsive web applications tailored to your needs.</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+                <div class="service-title">Trainings</div>
+                <div class="service-desc">Professional training sessions in programming and technology.</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-code"></i></div>
+                <div class="service-title">Programming</div>
+                <div class="service-desc">Expert programming solutions for businesses and startups.</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-pencil-ruler"></i></div>
+                <div class="service-title">UX/UI Designs</div>
+                <div class="service-desc">User-centered design for web and mobile interfaces.</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+                <div class="service-title">Branding</div>
+                <div class="service-desc">Creative branding strategies to elevate your business identity.</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-file-image"></i></div>
+                <div class="service-title">Flyer Designs</div>
+                <div class="service-desc">Eye-catching flyer designs for events and promotions.</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-tshirt"></i></div>
+                <div class="service-title">T-shirt Branding</div>
+                <div class="service-desc">Custom t-shirt branding for teams, events, and businesses.</div>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-car"></i></div>
+                <div class="service-title">Car Brandings</div>
+                <div class="service-desc">Professional car branding and wraps for business promotion.</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

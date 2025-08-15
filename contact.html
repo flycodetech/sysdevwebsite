@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - FlyCodeTecSecure</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: #011e6d;
+            color: #fff;
+            position: relative;
+            min-height: 100vh;
+        }
+        .bubbles {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .contact-container {
+            position: relative;
+            z-index: 2;
+            max-width: 400px;
+            margin: 100px auto;
+            background: rgba(30,30,30,0.85);
+            padding: 32px 24px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+        .logo {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 24px auto;
+            animation: roll 2s linear infinite;
+            display: block;
+        }
+        @keyframes roll {
+            0% { transform: rotate(0deg);}
+            100% { transform: rotate(360deg);}
+        }
+        .contact-info {
+            font-size: 1.1em;
+            line-height: 2;
+            margin-top: 16px;
+        }
+        .contact-info span {
+            display: block;
+            margin-bottom: 8px;
+        }
+        h1 {
+            margin-bottom: 12px;
+            font-size: 2em;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <canvas class="bubbles"></canvas>
+    <div class="contact-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="Logo" class="logo">
+        <h1>Contact Us</h1>
+        <div class="contact-info">
+            <span>📞 08032899975</span>
+            <span>✉️ flycodetecsecure@gmail.com</span>
+            <span>🏢 Emmanuel High Street, Lagos, Nigeria</span>
+        </div>
+    </div>
+    <script>
+        // Bubble background animation
+        const canvas = document.querySelector('.bubbles');
+        const ctx = canvas.getContext('2d');
+        let bubbles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function randomColor() {
+            const colors = ['#00eaff', '#ff6ec7', '#ffd700', '#7cff00', '#ff3c3c'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function createBubble() {
+            return {
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                r: 10 + Math.random() * 30,
+                dx: (Math.random() - 0.5) * 1.5,
+                dy: (Math.random() - 0.5) * 1.5,
+                color: randomColor(),
+                alpha: 0.3 + Math.random() * 0.5
+            };
+        }
+
+        for (let i = 0; i < 30; i++) {
+            bubbles.push(createBubble());
+        }
+
+        function drawBubbles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let b of bubbles) {
+                ctx.save();
+                ctx.globalAlpha = b.alpha;
+                ctx.beginPath();
+                ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+                ctx.fillStyle = b.color;
+                ctx.fill();
+                ctx.restore();
+
+                b.x += b.dx;
+                b.y += b.dy;
+
+                // Bounce off edges
+                if (b.x < -b.r) b.x = canvas.width + b.r;
+                if (b.x > canvas.width + b.r) b.x = -b.r;
+                if (b.y < -b.r) b.y = canvas.height + b.r;
+                if (b.y > canvas.height + b.r) b.y = -b.r;
+            }
+            requestAnimationFrame(drawBubbles);
+        }
+        drawBubbles();
+    </script>
+</body>
+</html>
